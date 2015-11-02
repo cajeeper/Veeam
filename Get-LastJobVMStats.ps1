@@ -28,6 +28,7 @@ $results = invoke-command -script {
 					"VM Name" = $_.Name
 					"Status" = $_.Status
 					"QueuedTime" = $_.info.QueuedTime
+					"Duration" = $_.progress.Duration
 					"AvgSpeed-MBs" = [math]::Round(($_.progress.AvgSpeed / 1MB),2)
 			})
 		}
