@@ -10,6 +10,7 @@ $results = invoke-command -script {
 		#gathering job info
 		$JobName = $Job.Name
 		$JobState = $LastSession.State
+		$JobAlgorithm = $Job.Info.JobAlgorithm
 		$JobStart = $LastSession.CreationTime
 		$JobEnd = $LastSession.EndTime
 		$JobResult = $LastSession.Result
@@ -28,9 +29,12 @@ $results = invoke-command -script {
 					"VM Name" = $_.Name
 					"Status" = $_.Status
 					"QueuedTime" = $_.info.QueuedTime
+					"JobAlgorithm" = $_.jobsess.info.JobAlgorithm
 					"Start Time" = $_.progress.StartTime
 					"Duration" = $_.progress.Duration
 					"AvgSpeed-MBs" = [math]::Round(($_.progress.AvgSpeed / 1MB),2)
+					"ReadSize-GB" = [math]::Round(($_.progress.ReadSize / 1GB),2)
+					"ProcessedSize-GB" = [math]::Round(($_.progress.ProcessedSize / 1GB),2)
 			})
 		}
 	}
