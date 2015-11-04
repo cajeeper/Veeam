@@ -10,7 +10,7 @@ $results = invoke-command -script {
 		#gathering job info
 		$JobName = $Job.Name
 		$JobState = $LastSession.State
-		$JobBackedUpSize-GB = [math]::Round(($LastSession.SessionInfo.BackedUpSize/ 1MB),2)
+		$JobBackedUpSizeGB = [math]::Round(($LastSession.SessionInfo.BackedUpSize/ 1GB),2)
 		$JobStart = $LastSession.CreationTime
 		$JobEnd = $LastSession.EndTime
 		$JobResult = $LastSession.Result
@@ -25,7 +25,7 @@ $results = invoke-command -script {
 			New-Object psobject -Property ([ordered]@{
 					"Job Name" = $JobName
 					"Job State" = $JobState
-					"JobBackedUpSize-GB" = $JobBackedUpSize-GB
+					"JobBackedUpSize-GB" = $JobBackedUpSizeGB
 					"Job Start" = $JobStart
 					"VM Name" = $_.Name
 					"Status" = $_.Status
