@@ -36,6 +36,7 @@ $results = invoke-command -script {
 					"AvgSpeed-MBs" = [math]::Round(($_.progress.AvgSpeed / 1MB),2)
 					"ReadSize-GB" = [math]::Round(($_.progress.ReadSize / 1GB),2)
 					"ProcessedSize-GB" = [math]::Round(($_.progress.ProcessedSize / 1GB),2)
+					"Disk Details" = (($_.Logger.GetLog()).UpdatedRecords | ? {$_.Title -like "Hard Disk*" } | Sort-Object Title | % { "$($_.Title) : $($_.Description)" }) | out-string
 			})
 		}
 	}
