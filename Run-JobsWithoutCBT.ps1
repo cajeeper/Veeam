@@ -21,6 +21,7 @@ foreach ($Job in $Jobs) {
 			Get-VBRJob -Name $Job.name | ? { $_.IsRunning -ne $true } | % { $JobStopped = $true }
 			Sleep -Seconds 10
 		}
+	
 	#Enable CBT after the job has stopped.
 	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $true | out-null
 
