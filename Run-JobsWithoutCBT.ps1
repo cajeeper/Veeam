@@ -16,12 +16,12 @@ foreach ($Job in $Jobs) {
 	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $false | out-null
 	$Job | Start-VBRJob | %{ $JobStopped = $false }
 	
-	
+	#Wait for the job to complete running before moving on
 	while(!$JobStopped) {	
 			Get-VBRJob -Name $Job.name | ? { $_.IsRunning -ne $true } | % { $JobStopped = $true }
 			Sleep -Seconds 10
 		}
-	#Disable CBT after the job has stopped.
+	#Enable CBT after the job has stopped.
 	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $true | out-null
 
 }
