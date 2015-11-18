@@ -14,8 +14,8 @@ foreach ($Job in $Jobs) {
 		}
 	
 	#Disable CBT and start the job
-	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $false | out-null
-	$Job | Start-VBRJob | out-null
+	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $false | Out-Null
+	$Job | Start-VBRJob | Out-Null
 	
 	$JobStopped = $false
 	#Wait for the job to complete running before moving on
@@ -25,6 +25,6 @@ foreach ($Job in $Jobs) {
 		}
 	
 	#Enable CBT after the job has stopped
-	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $true | out-null
+	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $true | Out-Null
 
 }
