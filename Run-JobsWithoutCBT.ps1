@@ -24,7 +24,7 @@ foreach ($Job in $Jobs) {
 			Sleep -Seconds 10
 		}
 	
-	#Enable CBT after the job has stopped.
+	#Enable CBT after the job has stopped
 	$Job | Set-VBRJobAdvancedViOptions -UseChangeTracking $true | out-null
 
 }
