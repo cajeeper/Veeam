@@ -2,7 +2,7 @@
 . "C:\Program Files\Veeam\Backup and Replication\Backup\Install-VeeamToolkit.ps1"
 
 #Gather VMware Jobs
-$Jobs = Get-VBRJob | ? { $_.BackupPlatform -match "VMware" }
+$Jobs = Get-VBRJob | ? { $_.BackupPlatform -match "VMware" -and $_.JobType -eq "Backup" }
 
 #Run each job with change tracking disabled, then re-enable
 foreach ($Job in $Jobs) {
