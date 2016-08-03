@@ -6,14 +6,11 @@
 	disable auto-proxy detection while using the proxies
 	specified per location.
 .NOTES
-    File Name      : Update BackupJob Proxies.ps1
-    Author         : Justin Bennett (justin@allthingstechie.net)
-    Date           : 2016-08-02
-	Version	       : 1.0
-	Revisions      : 1.0 Original
-.LINK
-.EXAMPLE
-    .\Update BackupJob Proxies.ps1
+  Author   : Justin Bennett   
+  Date     : 2016-08-02
+  Contact  : http://www.allthingstechie.net
+  Revision : v1.0
+  Changes  : v1.0 Original
 #>
 #Load Veeam Snap-in
 Add-PSSnapin VeeamPSSnapin
